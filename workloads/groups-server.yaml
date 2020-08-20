@@ -27,10 +27,10 @@ spec:
     spec:
       containers:
       - env:
-        args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn", "--server_name", "kube", "--port", "7781"]
         - name: FOO
           value: BAR
         image: groupsinfra/groups-server:v_sekai.b5cebd51.master.groups.e9d2553c.14.88.16
+        args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn", "--server_name", "kube", "--port", "7781"]
         imagePullPolicy: IfNotPresent
         name: groups-server
         resources: {}
@@ -38,7 +38,6 @@ spec:
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       hostNetwork: true
-      external
       restartPolicy: Always
       serviceAccount: default
       serviceAccountName: default
