@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +22,7 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
+      creationTimestamp:
       labels:
         app: groups-server
     spec:
@@ -29,8 +30,9 @@ spec:
       - env:
         - name: FOO
           value: BAR
-        image: groupsinfra/groups-server:v_sekai.b5cebd51.master.groups.e9d2553c.14.88.16
-        args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn", "--server_name", "kube", "--port", "7781"]
+        image: groupsinfra/groups-server:v_sekai.b5cebd51.master.groups.e9d2553c.14.88.17
+        args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn",
+          "--server_name", "kube", "--port", "7781"]
         imagePullPolicy: IfNotPresent
         name: groups-server
         resources: {}
