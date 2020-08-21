@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,7 +36,8 @@ spec:
         command:
         - "/bin/ash"
         - "-ecx"
-        - "/request-cert -namespace=${POD_NAMESPACE} -certs-dir=/cockroach-certs -type=client -user=uro-prod -symlink-ca-from=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+        - "/request-cert -namespace=${POD_NAMESPACE} -certs-dir=/cockroach-certs -type=client\
+          \ -user=uro-prod -symlink-ca-from=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
         env:
         - name: POD_NAMESPACE
           valueFrom:
@@ -59,7 +61,7 @@ spec:
               key: pass
         - name: DATABASE_URL
           value: "postgres://uro-prod@cockroachdb-public:26257/uro_prod?sslmode=verify-full&sslcert=/cockroach-certs/client.uro-prod.crt&sslkey=/cockroach-certs/client.uro-prod.key&sslrootcert=/cockroach-certs/ca.crt"
-        image: groupsinfra/uro:ce9497d0.2
+        image: groupsinfra/uro:autodocker
         imagePullPolicy: Always
         volumeMounts:
         - name: client-certs
