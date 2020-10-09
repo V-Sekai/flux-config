@@ -30,7 +30,7 @@ spec:
       - env:
         - name: FOO
           value: BAR
-        image: groupsinfra/groups-server:v_sekai.08b6148a.groups.704e6502.35.174.107
+        image: groupsinfra/groups-server:v_sekai.08b6148a.groups.70fa1bd5.37.175.108
         args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn",
           "--server_name", "kube", "--port", "7781"]
         imagePullPolicy: IfNotPresent
