@@ -49,6 +49,11 @@ spec:
       containers:
       - name: uro
         env:
+        - name: SENDGRID_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: sendgrid-api-key
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:
