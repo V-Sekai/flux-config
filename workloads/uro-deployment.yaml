@@ -54,6 +54,16 @@ spec:
             secretKeyRef:
               name: uro-prod
               key: sendgrid-api-key
+        - name: DISCORD_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: discord-client-id
+        - name: DISCORD_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: discord-client-secret
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:
