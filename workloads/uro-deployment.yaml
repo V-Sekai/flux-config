@@ -22,6 +22,9 @@ spec:
       volumes:
       - name: client-certs
         emptyDir: {}
+      - name: static01-storage
+        persistentVolumeClaim:
+          claimName: static01-pvc
       initContainers:
       # The init-certs container sends a certificate signing request to the
       # kubernetes cluster.
@@ -81,6 +84,9 @@ spec:
         volumeMounts:
         - name: client-certs
           mountPath: /cockroach-certs
+        - name: static01-storage
+          mountPath: /app/uploads
+          subPath: uploads
         ports:
         - containerPort: 4000
           name: http
