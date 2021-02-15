@@ -79,7 +79,7 @@ spec:
               key: pass
         - name: DATABASE_URL
           value: "postgres://uro-prod@cockroachdb-public:26257/uro_prod?sslmode=verify-full&sslcert=/cockroach-certs/client.uro-prod.crt&sslkey=/cockroach-certs/client.uro-prod.key&sslrootcert=/cockroach-certs/ca.crt"
-        image: groupsinfra/uro:7fa39185.52
+        image: groupsinfra/uro:autodocker
         imagePullPolicy: Always
         volumeMounts:
         - name: client-certs
