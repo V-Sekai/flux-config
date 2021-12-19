@@ -4,8 +4,6 @@ kind: Deployment
 metadata:
   labels:
     app: groups-server
-  annotations:
-    fluxcd.io/automated: "true"
   name: groups-server
   namespace: default
 spec:
