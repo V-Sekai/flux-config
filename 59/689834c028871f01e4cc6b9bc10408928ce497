@@ -1,0 +1,1 @@
+{"jobID":"4b9ba768-febc-302d-91d6-1ae6e673ac05","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"default:deployment/uro-deployment":{"add":{},"remove":{"automated":"true"}}}},"result":null}
