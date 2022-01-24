@@ -28,8 +28,8 @@ spec:
       - env:
         - name: FOO
           value: BAR
-        image: groupsinfra/groups-server:groups-4.0.groups-4.0.84042f30.551.469.387
-        args: ["--public", "--dedicated", "--use_flat", "--map", "res://assets/scenes/maps/sky_celebration/sky_celebration.tscn",
+        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.38822b94.92.151.517
+        args: ["--headless","--public", "--dedicated", "--use_flat", "--map", "uro://3fa59d02-1dcf-4203-aa51-6d8f5ef29cb2",
           "--server_name", "kube", "--port", "7781"]
         imagePullPolicy: IfNotPresent
         name: groups-server
