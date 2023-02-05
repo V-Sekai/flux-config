@@ -28,9 +28,9 @@ spec:
       - env:
         - name: FOO
           value: BAR
-        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.38822b94.92.151.518
-        args: ["--headless","--public", "--dedicated", "--use_flat", "--map", "uro://3fa59d02-1dcf-4203-aa51-6d8f5ef29cb2",
-          "--server_name", "kube", "--port", "7781"]
+        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.bdcf7b7f.448.675.1112
+        args: ["--headless","--public", "--dedicated", "--use_flat", "--map", "uro://bb7d83a8-a92d-4ba4-8e3f-233468c3e9db",
+          "--server_name", "V-Sekai Kube Server", "--port", "7781"]
         imagePullPolicy: IfNotPresent
         name: groups-server
         resources: {}
