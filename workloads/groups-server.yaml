@@ -28,7 +28,7 @@ spec:
       - env:
         - name: FOO
           value: BAR
-        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.1de2b617.458.694.1132
+        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.1de2b617.458.698.1136
         args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://bb7d83a8-a92d-4ba4-8e3f-233468c3e9db",
           "--server_name", "V-Sekai Kube Server", "--port", "7781"]
         imagePullPolicy: IfNotPresent
