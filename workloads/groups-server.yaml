@@ -27,7 +27,7 @@ spec:
       - env:
         image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.cc795ee7.536.1033.1344
         args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://69ba151f-a0ca-41e4-b918-f7d7e7399d79",
-          "--server_name", "V-Sekai Preview Hut", "--port", "7781"]
+          "--server_name", "V-Sekai Preview Hut", "--port", "7791"]
         imagePullPolicy: IfNotPresent
         name: groups-server-06
         resources: {}
