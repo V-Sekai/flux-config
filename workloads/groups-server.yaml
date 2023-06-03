@@ -7,7 +7,6 @@ metadata:
   name: groups-server
   namespace: default
 spec:
-  # progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
@@ -26,9 +25,7 @@ spec:
     spec:
       containers:
       - env:
-        - name: FOO
-          value: BAR
-        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.1de2b617.458.698.1136
+        image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.7aece050.535.1029.1338
         args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://bb7d83a8-a92d-4ba4-8e3f-233468c3e9db",
           "--server_name", "V-Sekai Kube Server", "--port", "7781"]
         imagePullPolicy: IfNotPresent
