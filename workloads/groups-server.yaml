@@ -26,8 +26,8 @@ spec:
       containers:
       - env:
         image: groupsinfra/groups-server:groups-4.0.groups-4.0.0.cc795ee7.536.1033.1344
-        args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://69ba151f-a0ca-41e4-b918-f7d7e7399d79",
-          "--server_name", "V-Sekai Preview Hut", "--port", "7791"]
+        args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://e23e9388-9bb6-46bf-9e26-496744659e43",
+          "--server_name", "V-Sekai Preview Desert Light", "--port", "7801"]
         imagePullPolicy: IfNotPresent
         name: groups-server-06
         resources: {}
