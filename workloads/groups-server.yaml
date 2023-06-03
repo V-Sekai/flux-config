@@ -3,15 +3,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: groups-server
-  name: groups-server
+    app: groups-server-06
+  name: groups-server-06
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: groups-server
+      app: groups-server-06
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,7 +21,7 @@ spec:
     metadata:
       creationTimestamp:
       labels:
-        app: groups-server
+        app: groups-server-06
     spec:
       containers:
       - env:
@@ -29,7 +29,7 @@ spec:
         args: ["--headless","--public", "--dedicated", "--max_retries", "100", "--map", "uro://69ba151f-a0ca-41e4-b918-f7d7e7399d79",
           "--server_name", "V-Sekai Preview Hut", "--port", "7781"]
         imagePullPolicy: IfNotPresent
-        name: groups-servergi
+        name: groups-server-06
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
