@@ -65,22 +65,32 @@ spec:
       containers:
       - name: uro-stage
         env:
-        - name: XXDISABLEDXX_SENDGRID_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: uro-prod
-              key: sendgrid-api-key
-        - name: DISCORD_CLIENT_ID
+        - name: OAUTH2_DISCORD_CLIENT_ID
           valueFrom:
             secretKeyRef:
               name: uro-prod
               key: discord-client-id
-        - name: DISCORD_CLIENT_SECRET
+        - name: OAUTH2_DISCORD_CLIENT_SECRET
           valueFrom:
             secretKeyRef:
               name: uro-prod
               key: discord-client-secret
+        - name: OAUTH2_GITHuB_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: github-client-id
+        - name: OAUTH2_GITHUB_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: github-client-secret
         - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: uro-prod
+              key: secret-key-base
+        - name: PHOENIX_KEY_BASE
           valueFrom:
             secretKeyRef:
               name: uro-prod
@@ -92,6 +102,21 @@ spec:
               key: pass
         - name: DATABASE_URL
           value: "postgres://uro-prod@cockroachdb-public:26257/uro?sslmode=verify-full&sslcert=/cockroach-certs/client.uro-prod.crt&sslkey=/cockroach-certs/client.uro-prod.key&sslrootcert=/cockroach-certs/ca.crt"
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: valkey-secret
+              key: redis_url
+        - name: FRONTEND_URL
+          value: https://stage.v-sekai.org/
+        - name: ROOT_ORIGIN
+          value: https://stage.v-sekai.org
+        - name: URL
+          value: https://stage.v-sekai.org/api/v1/
+        - name: PORT
+          value: "4000"
+        - name: JOKEN_SIGNER
+          value: "todo"
         image: groupsinfra/uro:docker-uro_60ccf656.99
         imagePullPolicy: Always
         volumeMounts:
