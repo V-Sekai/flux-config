@@ -38,6 +38,9 @@ spec:
       - name: static01-storage
         persistentVolumeClaim:
           claimName: static01-pvc
+      - name: uro-configmap
+        configMap:
+          name: uro-configmap
       initContainers:
       # The init-certs container sends a certificate signing request to the
       # kubernetes cluster.
@@ -101,7 +104,7 @@ spec:
               name: uro-prod
               key: pass
         - name: DATABASE_URL
-          value: "postgres://uro-prod@cockroachdb-public:26257/uro?sslmode=verify-full&sslcert=/cockroach-certs/client.uro-prod.crt&sslkey=/cockroach-certs/client.uro-prod.key&sslrootcert=/cockroach-certs/ca.crt"
+          value: "cockroachdb://uro-prod@cockroachdb-public:26257/uro?sslmode=verify-full&sslcert=/cockroach-certs/client.uro-prod.crt&sslkey=/cockroach-certs/client.uro-prod.key&sslrootcert=/cockroach-certs/ca.crt"
         - name: REDIS_URL
           valueFrom:
             secretKeyRef:
@@ -117,7 +120,7 @@ spec:
           value: "4000"
         - name: JOKEN_SIGNER
           value: "todo"
-        image: groupsinfra/uro:docker-uro_60ccf656.99
+        image: groupsinfra/uro:docker-uro_93f9350c.102
         imagePullPolicy: Always
         volumeMounts:
         - name: client-certs
@@ -125,6 +128,8 @@ spec:
         - name: static01-storage
           mountPath: /app/uploads
           subPath: uploads
+        - name: uro-configmap
+          mountPath: /app/config
         ports:
         - containerPort: 4000
           name: http
@@ -172,7 +177,7 @@ spec:
           value: http://uro-stage:4000
         - name: NEXT_PUBLIC_API_ORIGIN
           value: https://stage.v-sekai.org/api/v1
-        image: groupsinfra/uro_frontend:docker-uro_60ccf656.99
+        image: groupsinfra/uro_frontend:docker-uro_93f9350c.102
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
